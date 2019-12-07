@@ -29,7 +29,7 @@ does not compile due to
 ```
 $ go build ./...
 # github.com/dhermes/interfaces-pain/consumer
-consumer/usage.go:15:2: cannot use c (type oldname.Container) as type newname.Container in return argument:
+consumer/usage.go:16:2: cannot use c (type oldname.Container) as type newname.Container in return argument:
         oldname.Container does not implement newname.Container (wrong type for Values method)
                 have Values() []oldname.Value
                 want Values() []newname.Value
@@ -45,3 +45,5 @@ func UpgradeValue(v oldname.Value) newname.Value {
 ```
 
 does not produce compiler errors.
+
+It seems that using a type alias may be the only way forward.
